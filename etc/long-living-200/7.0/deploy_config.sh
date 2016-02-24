@@ -14,6 +14,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+vm_name_prefix=long-living-7-0-
+iso_path=iso/fuel-7.0-301-2015-09-22_20-01-53.iso
 
 private_interface=net-admin
 vm_master_ip=10.20.1.2
@@ -31,10 +33,11 @@ internet_netmask=255.255.255.128
 internet_ip=172.16.168.132
 internet_gateway=172.16.168.129
 
-kvm_nodes_count=0
+vm_master_cpu_cores=2
+vm_master_memory_mb=4096
+vm_master_disk_gb=200
 
-vm_slave_memory_mb=7168
-vm_slave_disk_gb=200
+kvm_nodes_count=0
 
 mashines_count=5
 

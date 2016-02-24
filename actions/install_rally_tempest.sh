@@ -40,7 +40,7 @@ virtualenv venv
 source venv/bin/activate
 sudo docker build -t rally-tempest custom-scripts/rally-tempest/
 sudo docker save -o ./dimage rally-tempest
-sshpass -p 'r00tme' ${SSH_OPTIONS} dimage root@"${vm_master_ip}":/root/rally
+sshpass -p 'r00tme' scp ${SSH_OPTIONS} dimage root@"${vm_master_ip}":/root/rally
 
-sshpass -p 'r00tme' ${SSH_OPTIONS} scripts/install_rally.sh root@"${vm_master_ip}":/root/
-ssh_to_master "chmod +x /root/run_rally.sh && /bin/bash -xe /root/run_rally.sh > /root/log.log"
+sshpass -p 'r00tme' scp ${SSH_OPTIONS} scripts/install_rally.sh root@"${vm_master_ip}":/root/
+ssh_to_master "chmod +x /root/install_rally.sh && /bin/bash -xe /root/install_rally.sh > /root/log.log"
