@@ -30,8 +30,13 @@ INSTALL_MOS_TEMPEST_RUNNER_LOG=${INSTALL_MOS_TEMPEST_RUNNER_LOG:-"install_rally_
 RUN_TEMPEST_LOG=${RUN_TEMPEST_LOG:-"rally_tempest_log.txt"}
 RUN_TEMPEST_LOGGING_PATH=${RUN_TEMPEST_LOGGING_PATH:-"."}
 
-run_with_logs git clone https://github.com/Mirantis/mos-integration-tests/
-cd mos-integration-tests
+if [ -d mos-integration-tests ]; then
+    rm -rf mos-integration-tests
+fi
+
+run_with_logs git clone https://review.fuel-infra.org/fuel-infra/dockerfiles
+
+cd dockerfiles
 virtualenv venv
 source venv/bin/activate
 sudo docker build -t rally-tempest custom-scripts/rally-tempest/

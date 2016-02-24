@@ -34,9 +34,5 @@ if [ ! -d "${LOGGING_PATH}" ]; then
     chmod 666 ${LOG}
 fi
 
-# Create and use python virtualenv
-virtualenv
-check_return_code_after_command_execution $? "Create virtualenv is failed."
-
 #   Run tests for project
 ./actions/install_rally_tempest.sh
