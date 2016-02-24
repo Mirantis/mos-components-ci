@@ -55,7 +55,7 @@ import_config() {
     set +a
 }
 
-virtualenv() {
+py27_virtualenv() {
 # Create and source python tox virtualenv
 tox -e py27
 source .tox/py27/bin/activate

@@ -39,7 +39,7 @@ if [ ! -d "${LOGGING_PATH}" ]; then
 fi
 
 # Create and use python virtualenv
-virtualenv
+py27_virtualenv
 check_return_code_after_command_execution $? "Create virtualenv is failed."
 
 #   Run tests for project

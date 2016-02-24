@@ -69,7 +69,7 @@ export CUSTOM_JOB ISO_PREFIX
 export MOS_VERSION MOS_BUILD
 
 # Create and use python virtualenv
-virtualenv
+py27_virtualenv
 check_return_code_after_command_execution $? "Create virtualenv is failed."
 
 #   Create and launch master node

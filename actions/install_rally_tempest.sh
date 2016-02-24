@@ -21,7 +21,6 @@
 
 
 source functions/product.sh
-source functions/resources.sh
 import_config ${1}
 
 SSH_OPTIONS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
@@ -30,8 +29,8 @@ INSTALL_MOS_TEMPEST_RUNNER_LOG=${INSTALL_MOS_TEMPEST_RUNNER_LOG:-"install_rally_
 RUN_TEMPEST_LOG=${RUN_TEMPEST_LOG:-"rally_tempest_log.txt"}
 RUN_TEMPEST_LOGGING_PATH=${RUN_TEMPEST_LOGGING_PATH:-"."}
 
-if [ -d mos-integration-tests ]; then
-    rm -rf mos-integration-tests
+if [ -d dockerfiles ]; then
+    rm -rf dockerfiles
 fi
 
 run_with_logs git clone https://review.fuel-infra.org/fuel-infra/dockerfiles
