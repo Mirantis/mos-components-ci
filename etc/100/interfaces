@@ -1,0 +1,49 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet manual
+
+
+auto br-public
+iface br-public inet static
+        bridge_ports eth0
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+        address 172.18.162.135
+        netmask 255.255.255.0
+        gateway 172.18.162.1
+        dns-nameservers 172.18.176.6
+        dns-search devops.mirantis.net bud.mirantis.net vm.mirantis.net ad.mirantis.net mirantis.net
+
+auto eth1
+iface eth1 inet manual
+      
+# VID: 100
+auto eth1.100
+iface eth1.100 inet manual
+        vlan-raw-devices eth1
+
+# Admin net = PXE
+auto br-admin
+iface br-admin inet static
+        bridge_ports eth1.100
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+        address 10.20.0.200
+	netmask 255.255.255.0
+
+# All vlans
+audo br-all
+iface br-all inet manual
+        bridge_ports eth1
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0 
