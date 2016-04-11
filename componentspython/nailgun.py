@@ -46,6 +46,9 @@ multiversion_dict = {
     '8.0': {
         'cluster': 'cluster'
     },
+    '9.0': {
+        'cluster': 'cluster'
+    },
 }
 
 
