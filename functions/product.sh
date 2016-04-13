@@ -202,6 +202,10 @@ wait_for_product_vm_to_install() {
                     sudo sed -i "s/^  dhcp_pool_end: .*/  dhcp_pool_end: \"${vm_master_dhcp_pool_end}\"/" ${fuel_disk_directory}/etc/fuel/astute.yaml
                 fi
 
+                if [[ -n "${internet_dns}" ]]; then
+                    echo -e $"\nDNS1=$vm_master_ip\nDNS2=$internet_dns" | sudo tee -a ${fuel_disk_directory}/etc/sysconfig/network-scripts/ifcfg-eth0
+                fi
+
                 if [ -n "${internet_interface}" ]; then
                     bootproto=${internet_bootproto:-"dhcp"}
                     ifcfg=$"DEVICE=eth1\nTYPE=Ethernet\nONBOOT=yes\nNM_CONTROLLED=no\nBOOTPROTO=$bootproto\nPEERDNS=no\nGATEWAY=${internet_gateway}"

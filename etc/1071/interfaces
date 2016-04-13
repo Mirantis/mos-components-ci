@@ -1,0 +1,29 @@
+auto lo
+iface lo inet loopback
+
+auto br19
+iface br19 inet static
+        bridge_ports p4p1
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+        address 172.18.78.124
+        netmask 255.255.255.128
+        gateway 172.18.78.1
+        dns-nameservers 172.18.80.136
+
+auto p4p1
+iface p4p1 inet manual
+
+auto p4p1.1071
+iface p4p1.1071 inet manual
+        vlan-raw-devices p4p1
+
+auto br-admin
+iface br-admin inet static
+        bridge_ports p4p1.1071
+        bridge_stp off
+        bridge_fd 0
+        bridge_maxwait 0
+        address 10.20.0.200
+        netmask 255.255.255.0
