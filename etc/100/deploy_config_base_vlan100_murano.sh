@@ -5,6 +5,7 @@ internet_bootproto=dhcp
 # eth0
 internet_netmask=255.255.255.0
 internet_gateway=172.18.162.1
+internet_dns=172.18.176.6
 
 private_interface=br-admin
 private_int_type=bridge

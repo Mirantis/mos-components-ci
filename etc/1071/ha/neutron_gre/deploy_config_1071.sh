@@ -20,14 +20,20 @@ private_int_type=bridge
 
 public_interface=br19
 public_int_type=bridge
+internet_int_type=bridge
+internet_interface=br19
+internet_bootproto=dhcp
+internet_gateway=172.18.78.1
 
 kvm_nodes_count=3
 
 vm_slave_memory_mb=7168
 vm_slave_disk_gb=200
+vm_master_cpu_cores=1
+vm_slave_cpu_cores=2
 
 mashines_count=1
-
+fuel_master_install_timeout=120
 mashine_1_host=srv21-srt-ipmi.srt.mirantis.net
 mashine_1_user=engineer
 mashine_1_role=Operator
